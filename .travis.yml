@@ -1,0 +1,10 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  # -t as tag for image
+  - docker build -t oceans12/docker_udemy -f Dockerfile.dev .
+
+script:
+  - docker run oceans12/docker_udemy npm run test -- --coverage
